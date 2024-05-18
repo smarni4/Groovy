@@ -1,7 +1,6 @@
-/* groovylint-disable NoDef */
-/* groovylint-disable-next-line CompileStatic, JavaIoPackageAccess, VariableTypeRequired */
+import groovy.xml.XmlSlurper
+
 def number = 0
-/* groovylint-disable-next-line JavaIoPackageAccess */
 new File('data.txt').eachLine   { line ->
     number++
     println "$number: $line"
@@ -15,3 +14,10 @@ for (clazz in classes) {
 }
 
 println( [String, List, File]*.package.name)
+
+
+def customers = new XmlSlurper().parse(new File('customer.xml'))
+
+for (customer in customers.corporate.customer) {
+    println "${customer.@name} works in ${customer.@company}"
+}
