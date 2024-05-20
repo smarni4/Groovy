@@ -1,11 +1,10 @@
-pipeline{
+pipeline {
     agent any
 
     stages {
         stage('Build') {
             steps {
                 echo "Testing Git checkout code"
-                }
             }
         }
     }
