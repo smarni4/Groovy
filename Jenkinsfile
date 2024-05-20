@@ -4,12 +4,12 @@ pipeline{
     stages {
         stage('Install') {
             steps {
-                sh 'yum install docker'
+                sh 'yum install docker -y'
             }
         }
         stage('Build') {
             steps {
-                @docker.image('maven:3.3.3').inside {
+                docker.image('maven:3.3.3').inside {
                     sh 'mvn --version'
                 }
         }
