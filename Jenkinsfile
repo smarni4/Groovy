@@ -3,8 +3,10 @@ pipeline{
 
     stages {
         stage('Build') {
-            docker.image('maven:3.3.3').inside {
-                sh 'mvn --version'
+            steps {
+                docker.image('maven:3.3.3').inside {
+                    sh 'mvn --version'
+                }
             }
         }
     }

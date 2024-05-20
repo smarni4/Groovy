@@ -99,12 +99,46 @@
 
 // println arg.class //ArrayList
 
-String str1 = "123"
-String str2 = new String("1234")
+// String str1 = "123"
+// String str2 = new String("1234")
 
-if (str1 == str2) {
-    println "equal"
+// if (str1 == str2) {
+//     println "equal"
+// }
+// else {
+//     println "Not equal"
+// }
+
+// assert (true)
+// assert 1 == 1
+
+// class Book {
+//     private String title
+//     Book (String theTitle) {
+//         title = theTitle
+//     }
+//     String getTitle() {
+//         return title
+//     }
+// }
+
+// Book gina = new Book('Groovy in Action')
+
+// assert gina.getTitle() == 'Groovy in Action'
+// assert getTitleBackwwards(gina) == 'noitcA ni yvoorG'
+
+// String getTitleBackwwards(book) {
+//     String title = book.getTitle()
+//     return title.reverse()
+// }
+
+
+@Grab('commons-lang:commons-lang:2.4')
+import org.apache.commons.lang.ClassUtils
+
+class Outer {
+    class Inner {}
 }
-else {
-    println "Not equal"
-}
+
+assert !ClassUtils.isInnerClass(Outer)
+assert ClassUtils.isInnerClass(Outer.Inner)
