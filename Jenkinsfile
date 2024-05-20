@@ -2,17 +2,13 @@ pipeline{
     agent any
 
     stages {
-        stage('Install') {
-            steps {
-                sh 'yum install docker -y'
-            }
-        }
         stage('Build') {
+            agent {
+                docker { image 'maven:3.3.3' }
+            }
             steps {
-                docker.image('maven:3.3.3').inside {
-                    sh 'mvn --version'
-                }
+                sh 'mvn --version'
+            }    
+        }
         }
     }
-}
-}
