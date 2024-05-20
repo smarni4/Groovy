@@ -10,7 +10,6 @@ pipeline{
         stage('Build') {
             
             steps {
-                sh 'sudo yum install maven -y'
                 sh 'mvn --version'
             }    
         }
