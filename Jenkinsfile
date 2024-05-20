@@ -4,7 +4,7 @@ pipeline{
     stages {
         stage('Install') {
             steps {
-                sh yum install docker
+                sh 'yum install docker'
             }
         }
         stage('Build') {
