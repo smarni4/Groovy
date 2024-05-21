@@ -133,12 +133,72 @@
 // }
 
 
-@Grab('commons-lang:commons-lang:2.4')
-import org.apache.commons.lang.ClassUtils
+// @Grab('commons-lang:commons-lang:2.4')
+// import org.apache.commons.lang.ClassUtils
 
-class Outer {
-    class Inner {}
+// class Outer {
+//     class Inner {}
+// }
+
+// assert !ClassUtils.isInnerClass(Outer)
+// assert ClassUtils.isInnerClass(Outer.Inner)
+
+// [1, 2, 3].each {entry -> println entry }        // prints each item in the list
+
+// def totalclicks = 0
+// def partypeople = 100
+// 1.upto(partypeople) {guestnumber ->
+//                      clinkswithguest = guestnumber-1
+//                      totalclicks += clinkswithguest
+//                      }
+// println totalclicks
+// assert totalclicks == (partypeople * (partypeople-1)) /2
+
+// Scanner scan = new Scanner(System.in)
+// String s = scan.nextLine()
+// println s
+
+// import java.awt.*
+
+// Point topLeft = new Point(0, 0)
+// Point botRight = [100, 100]
+// Point center = [x:50, y:50]
+
+// assert botRight instanceof Point
+// assert center instanceof Point
+
+// def rect = new Rectangle()
+// rect.location = [0, 0]
+// rect.size = [width:100, height:100]
+
+// println rect
+
+
+class Person {
+    def firstName
+    def lName
+    def age
+    def getFirstName() {
+        firstName
+    }
+    def getLName() {
+        lName
+    }
+    def getAge() {
+        age
+    }
+    def getFullName() {
+        firstName + ' ' + lName
+    }
 }
 
-assert !ClassUtils.isInnerClass(Outer)
-assert ClassUtils.isInnerClass(Outer.Inner)
+def person = new Person(firstName: 'test', lName: '123', age: 23)
+
+println "${person.getFullName()}"
+println "${person.getFullName().getClass().name}"
+
+def multi_line_string  = """ This is a multiline 
+string assigning to the mult_line_string object
+"""
+
+println "${multi_line_string}"
