@@ -10,6 +10,7 @@ pipeline{
         stage('Build') {
             
             steps {
+                sh 'yum update -y'
                 sh 'mvn --version'
             }    
         }
